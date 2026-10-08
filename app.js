@@ -114,25 +114,11 @@ app.use((req,res,next)=>{
 });
 
 
-// demo user registeration route (commented out)
-
-
-// app.get("/demoUser", async (req, res) => {
-//     let fakeuser = new User({
-//         email: `fake@${Date.now()}123ß.com`,
-//         username: `fakeUser${Date.now()}123`,
-//     });
-
-//     let registeredUser = await User.register(fakeuser, "fakepassword");
-//     res.send(registeredUser);
-// });
-
 
 // Home Route
-// app.get("/", (req, res) => {
-//     res.send("Hello World");
-// });
-
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
 // Listing Routes
 app.use(
@@ -196,72 +182,6 @@ main().catch((err) => {
 
 
 
-
-// const express = require('express');
-// const app = express();
-// const mongoose = require("mongoose");
-// const Listing = require("./models/listing");
-// const path = require("path");
-// const methodOverride = require("method-override");
-// const ejsMate = require('ejs-mate');
-// const wrapasync = require("./utils/wrapasync.js");
-// const ExpressError = require("./utils/ExpressError.js");
-// const {listingSchema, reviewSchema} = require("./schema.js");
-// const { error } = require('console');
-// const Review = require("./models/review.js");
-// const listings = require("./views/routes/listing.js");
-// const reviews =   require("./views/routes/review.js");
-
-
-// //mongooge connect
-
-// main().then(() => {
-//     console.log("Connected to MongoDB");
-// }).catch((err) => {
-//     console.error("Error connecting to MongoDB", err);
-// });
-
-
-// async function main(){
-//     await mongoose.connect("mongodb://localhost:27017/mydatabase");
-// }
-
-// app.set("view engine", "ejs");
-// app.set("views", path.join(__dirname, "views"));
-// app.use(express.static(path.join(__dirname, "public")));
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-// app.use(methodOverride("_method"));
-// app.engine("ejs",ejsMate);
-// app.use(express.static(path.join(__dirname ,"/public")));
-// app.use(express.static(path.join(__dirname, "/public")))
-// //index rought 
-
-// app.get("/",(req ,res)=> {
-//     res.send("Hello World");
-// });
-
-// app.use("/listings",listings);
-// app.use("/listings/:id/reviews",reviews);
-
- 
-
-// app.all("/*splat", (req,res,next)=>{
-//     next(new ExpressError(404,"Page Not Found"));
-// });
-
-// // error handler
-// app.use((err, req,res,next)=>{
-//     let {statusCode = 500,message = "Something went wrong" } = err;
-//     res.render("error.ejs");
-//     // res.status(statusCode).send(message);
-
-// });
-
-
-// app.listen(3000, () => {
-//     console.log("Server is running on port 3000");
-// });
 
 
 
